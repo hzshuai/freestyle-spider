@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+# Python:
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+*.log
+logs/
+musics/
+*.lrc
+*.mp3
+*.local
+
+# mac
+.DS_Store
