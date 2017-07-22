@@ -10,10 +10,11 @@ build
 
 *.log
 logs/
-musics/
+musics-bak/
 *.lrc
 *.mp3
 *.local
+*.tar.gz
 
 # mac
 .DS_Store
