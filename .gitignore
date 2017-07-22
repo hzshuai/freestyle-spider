@@ -10,6 +10,7 @@ build
 
 *.log
 logs/
+musics
 musics-bak/
 *.lrc
 *.mp3
