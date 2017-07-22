@@ -23,7 +23,7 @@ headers = {
 proxies = {}
 
 logging.config.fileConfig("conf/log.ini")
-logger_name = "root"
+logger_name = "debug"
 logger = logging.getLogger(logger_name)
 
 atdict = {}
@@ -214,7 +214,7 @@ def fetch_all_albums(filepath, ftype = 'api', start = '', end = ''):
                 continue
 
             cnt += 1
-            if cnt % 200 == 0 and not has_failed:
+            if cnt % 200 == 0:
                 logger.critical("spider has crawled %s artists" % cnt)
 
             num_retries = 4 * 60 * 60
@@ -226,17 +226,20 @@ def fetch_all_albums(filepath, ftype = 'api', start = '', end = ''):
                         fetch_albums(l[0])
                     else :
                         fetch_albums_using_nodejs_api(l[0])
+                    has_failed = False
                     nt = num_retries
                 except Exception as e:
                     nt += 1
                     if health_check(ftype) and nt > 3:
                         logger.error('give up to fetch atist_id: %s' % l[0])
                         nt = num_retries
+                        has_failed = False
                     else :
                         logger.warn('[unknown error] fetch_all_albums atist_id: %s, has tried %d times, sleep %d s : ' % (l[0], nt, sleep_time))
                         time.sleep(sleep_time)
+                        has_failed = True
 
-            if nt == num_retries:
+            if has_failed:
                 logger.critical('************ Give up the crawl at artist id %s' % l[0])
                 break
 
