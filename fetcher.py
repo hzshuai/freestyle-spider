@@ -271,7 +271,7 @@ def run_test():
 
 if __name__ == '__main__':
     ##
-    #run_test([1001, 1002, 1003])
+    #run_test()
 
     '''
         fetch chinese artists
