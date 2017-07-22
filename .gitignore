@@ -15,6 +15,7 @@ musics-bak/
 *.lrc
 *.mp3
 *.local
+*.remote
 *.tar.gz
 
 # mac

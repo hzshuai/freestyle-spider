@@ -15,11 +15,11 @@ class logger:
 
     @classmethod
     def error(cls, msg):
-        cls.log.info(msg)
+        cls.log.error(msg)
 
     @classmethod
     def exception(cls, msg):
-        cls.log.info(msg)
+        cls.log.exception(msg)
 
     @classmethod
     def test(cls):

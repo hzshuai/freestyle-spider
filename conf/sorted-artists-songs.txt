@@ -2884,6 +2884,7 @@
 1046270,ETIRAZ,20,musics/at-1046270/songs-id-list.csv
 1032016,风子,20,musics/at-1032016/songs-id-list.csv
 2759,范竞马,20,musics/at-2759/songs-id-list.csv
+2799,范竟马,20,musics/at-2799/songs-id-list.csv
 820439,谷柏杉,20,musics/at-820439/songs-id-list.csv
 1039850,龚硕,20,musics/at-1039850/songs-id-list.csv
 3102,黄靖伦,20,musics/at-3102/songs-id-list.csv
@@ -4244,6 +4245,7 @@
 11652,Fxxker Family,11,musics/at-11652/songs-id-list.csv
 1049149,光速飞行,11,musics/at-1049149/songs-id-list.csv
 11690,高潮,11,musics/at-11690/songs-id-list.csv
+11715,怪力,11,musics/at-11715/songs-id-list.csv
 11889,红色浆果,11,musics/at-11889/songs-id-list.csv
 11898,华乐三姐妹,11,musics/at-11898/songs-id-list.csv
 125800,Oliver,11,musics/at-125800/songs-id-list.csv
@@ -4358,6 +4360,7 @@
 4260,李魏西,10,musics/at-4260/songs-id-list.csv
 4214,龙飞,10,musics/at-4214/songs-id-list.csv
 1041090,林一杰,10,musics/at-1041090/songs-id-list.csv
+3841,梁家辉,10,musics/at-3841/songs-id-list.csv
 842005,马飞,10,musics/at-842005/songs-id-list.csv
 1041010,买尔旦,10,musics/at-1041010/songs-id-list.csv
 4552,毛毛,10,musics/at-4552/songs-id-list.csv
@@ -5752,6 +5755,8 @@
 1047249,赵艺涵,3,musics/at-1047249/songs-id-list.csv
 1195024,叫我-薄荷叶儿,3,musics/at-1195024/songs-id-list.csv
 189887,罗丹,3,musics/at-189887/songs-id-list.csv
+12520605,任潇潇526847,3,musics/at-12520605/songs-id-list.csv
+12519665,Reigo_叉叉,3,musics/at-12519665/songs-id-list.csv
 11019,爱乐公社,3,musics/at-11019/songs-id-list.csv
 11201,暴君之狂怒,3,musics/at-11201/songs-id-list.csv
 1047127,从心开始EXO后援会,3,musics/at-1047127/songs-id-list.csv
@@ -5991,6 +5996,7 @@
 12475442,平婷,2,musics/at-12475442/songs-id-list.csv
 12132190,PINAR,2,musics/at-12132190/songs-id-list.csv
 996090,裴妍雅,2,musics/at-996090/songs-id-list.csv
+12523504,潘昱旋,2,musics/at-12523504/songs-id-list.csv
 12263888,朴惠子,2,musics/at-12263888/songs-id-list.csv
 12262800,裴亚荣,2,musics/at-12262800/songs-id-list.csv
 12144123,潘惠茹,2,musics/at-12144123/songs-id-list.csv
@@ -6420,8 +6426,13 @@
 220643,张娟,1,musics/at-220643/songs-id-list.csv
 790038,邓天晴,1,musics/at-790038/songs-id-list.csv
 790049,松井优美,1,musics/at-790049/songs-id-list.csv
+12521473,王琰,1,musics/at-12521473/songs-id-list.csv
+12521439,x0517x,1,musics/at-12521439/songs-id-list.csv
+12521417,何志会,1,musics/at-12521417/songs-id-list.csv
 12521247,苏槿屿,1,musics/at-12521247/songs-id-list.csv
+12520251,Excursion_1971,1,musics/at-12520251/songs-id-list.csv
 12520153,叶子,1,musics/at-12520153/songs-id-list.csv
+12519287,Yussi,1,musics/at-12519287/songs-id-list.csv
 1048013,A'N'D,1,musics/at-1048013/songs-id-list.csv
 11089,Angel Girl,1,musics/at-11089/songs-id-list.csv
 11016,Alive,1,musics/at-11016/songs-id-list.csv
