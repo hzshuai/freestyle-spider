@@ -1,4 +1,5 @@
 #!/bin/sh
+
 ps -fe | grep "node app.js" | grep -v grep
 if [ $? -ne 0 ]
 then
@@ -8,3 +9,6 @@ then
 else
     echo "runing....." >> /Users/hzshuai/Freestyle/music-crawler/NeteaseCloudMusicApi/node.log
 fi
+
+# cronjob
+# */1 * * * * sh /Users/hzshuai/Freestyle/music-crawler/daemon.sh
