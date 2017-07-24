@@ -1,3 +1,4 @@
+6452,周杰伦,368,musics/at-6452/songs-id-list.csv
 226672,风潮唱片,6637,musics/at-226672/songs-id-list.csv
 7570,邓丽君,3840,musics/at-7570/songs-id-list.csv
 900347,小旭音乐,3699,musics/at-900347/songs-id-list.csv
@@ -131,7 +132,6 @@
 2112,陈小春,372,musics/at-2112/songs-id-list.csv
 3154,洪荣宏,372,musics/at-3154/songs-id-list.csv
 4947,孙耀威,370,musics/at-4947/songs-id-list.csv
-6452,周杰伦,368,musics/at-6452/songs-id-list.csv
 8434,雷婷,368,musics/at-8434/songs-id-list.csv
 8156,江淑娜,367,musics/at-8156/songs-id-list.csv
 3694,罗志祥,363,musics/at-3694/songs-id-list.csv

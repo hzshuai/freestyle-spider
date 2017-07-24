@@ -18,6 +18,7 @@ musics-bak/
 *.remote
 *.tar.gz
 conf/log.ini
+*.db
 
 # mac
 .DS_Store

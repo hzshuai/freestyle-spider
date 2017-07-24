@@ -23,7 +23,7 @@ headers = {
 proxies = {}
 
 logging.config.fileConfig("conf/log.ini")
-logger_name = "debug"
+logger_name = "test"
 logger = logging.getLogger(logger_name)
 
 atdict = {}
@@ -99,7 +99,7 @@ def fetch_albums(artist_id):
     with open(artist_dir + '/songs-id-list.csv', 'w') as fout:
         while offset == 0 or more:
             params = {'id': artist_id, 'limit': limit, 'offset': offset}
-            print('start fetch_album params: ', params)
+            logger.info('start fetch_album params: {id : %s, limit: %s, offset: %s' %(artist_id, limit, offset))
             # 获取歌手个人主页
             r = requests.get('http://music.163.com/artist/album', headers = headers, params = params)
 
@@ -111,11 +111,11 @@ def fetch_albums(artist_id):
             for album in albums:
                 album_id = album['href'].replace('/album?id=', '')
                 album_name = album.string
-                print('\t%s, %s' % (album_id, album_name))
+                logger.info('\t%s, %s' % (album_id, album_name))
                 fetch_songs(album_id, fout)
 
-                sleep_time = random.random() / 8
-                print('\talbum: (%s, %s, sleep = %f s)' % (album_id, album_name, sleep_time))
+                sleep_time = random.random() / 4
+                logger.info('\talbum: (%s, %s, sleep = %f s)' % (album_id, album_name, sleep_time))
                 time.sleep(sleep_time)
 
             offset += limit
@@ -123,7 +123,7 @@ def fetch_albums(artist_id):
                 more = True
             else:
                 more = False
-            print('sleeping... 2 seconds')
+            logger.info('sleeping... 2 seconds')
             time.sleep(random.random() * 1) # sleep 5 seconds while fetch 12 albums
 
 def fetch_songs_using_nodejs_api(album_id, fout):
@@ -131,7 +131,7 @@ def fetch_songs_using_nodejs_api(album_id, fout):
     logger.info('start fetch_songs_id params: album_id = %s' % album_id)
     # 获取专辑对应的页面
     try:
-        print('http://localhost:3000/album', params, headers, proxies)
+        # print('http://localhost:3000/album', params, headers, proxies)
         r = requests.get('http://localhost:3000/album', params = params, headers = headers, proxies = proxies)
         j = json.loads(r.text)
         if j['code'] == 200:
@@ -163,7 +163,7 @@ def fetch_albums_using_nodejs_api(artist_id):
                     more = j['more']
                     for al in j['hotAlbums']:
                         fetch_songs_using_nodejs_api(al['id'], fout)
-                        sleep_time = random.random() / 8
+                        sleep_time = random.random() / 4
                         logger.info('\talbum: (%s, %s, sleeping = %f ms)' % (al['id'], al['name'], sleep_time))
                         time.sleep(sleep_time)
                 else :
