@@ -111,6 +111,7 @@ class Scheduler():
         self.threads = threads
         self.num = num
         self.crawled_cnt = 0
+        self.db_client.restore_artist_jobs()
 
     def produce(self, num):
         while task_que.full():
@@ -174,10 +175,10 @@ if __name__ == '__main__':
     db_client = DbClient('artists.db')
 
     threads = []
-    for i in range(25):
+    for i in range(2):
         t = Crawler(task_que, res_que)
         t.start()
         threads.append(t)
 
-    s = Scheduler(db_client, task_que, res_que, threads, 50)
+    s = Scheduler(db_client, task_que, res_que, threads, 2)
     s.run()
