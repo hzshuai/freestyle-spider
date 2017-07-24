@@ -162,7 +162,12 @@ class Scheduler():
         for e in query:
             if not task_que.full():
                 task_que.put(e)
-                tasks.append((CrawlStatus.IN_CRAWLING, CrawlStatus.IN_CRAWLING, '', e[1]))
+                if self.ftype == 'both':
+                    tasks.append((CrawlStatus.IN_CRAWLING, CrawlStatus.IN_CRAWLING, '', e[1]))
+                elif self.ftype == 'lyric':
+                    tasks.append((CrawlStatus.IN_CRAWLING, e[3], '', e[1]))
+                elif self.ftype == 'mp3':
+                    tasks.append((e[2], CrawlStatus.IN_CRAWLING, '', e[1]))
             else :
                 logger.info('====== Scheduler produce tasks queue fulled, %d threads has alive.' % self.num_alive())
                 break
@@ -211,10 +216,10 @@ class Scheduler():
 
 if __name__ == '__main__':
     # test multiple threading
-    task_que = Queue(maxsize = 2000)
+    task_que = Queue(maxsize = 200)
     res_que = Queue()
     db_client = DbClient('free.db')
-    ftype = 'lyric'
+    ftype = 'mp3'
 
     threads = []
     for i in range(10):
@@ -222,5 +227,5 @@ if __name__ == '__main__':
         t.start()
         threads.append(t)
 
-    s = Scheduler(db_client, task_que, res_que, threads, 500, ftype)
+    s = Scheduler(db_client, task_que, res_que, threads, 20, ftype)
     s.run()
