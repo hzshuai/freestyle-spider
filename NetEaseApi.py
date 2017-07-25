@@ -10,6 +10,7 @@ import random
 import base64
 import binascii
 import requests
+from bs4 import BeautifulSoup
 
 modulus = ('00e0b509f6259df8642dbc35662901477df22677ec152b5ff68ace615bb7'
            'b725152b3ab17a876aea8a5aa76d2e417629ec4ee341f56135fccf695280'
@@ -105,15 +106,27 @@ def get_album(album_id, proxies = {}):
     }
     data = encrypted_request(text)
     r = requests.post(url, params = params, data=data, headers=headers, proxies=proxies)
+    print('r = ', r.text)
     return json.loads(r.text)
+
+def check_ip(proxies):
+    url = 'http://ip.chinaz.com/'
+    r = requests.get(url, proxies = proxies)
+    soup = BeautifulSoup(r.content.decode(), 'html.parser')
+    body = soup.body
+    ip = body.find_all('dl', attrs={'class': 'IpMRig-tit'})
+    print('ip: ', ip)
 
 if __name__ == '__main__':
 
-    proxies = {'http': '110.73.31.223:8123'}
+    proxies = {'https':'http://171.39.72.230:8123'}
 
-    print(get_lyric('185662'), proxies)
+    check_ip(proxies)
+    #'https': '123.55.179.157:808'}
 
-    print(get_mp3url('185662'), proxies)
+    # print(get_lyric('185662'), proxies)
 
-    # get_artist_albums('6452')
-    # get_album('2537184')
+    # print(get_mp3url('185662'), proxies)
+
+    # print(get_album('2537184', proxies = proxies))
+    # print(get_artist_albums('6452', proxies = proxies))

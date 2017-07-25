@@ -94,7 +94,7 @@ class Crawler(threading.Thread):
                 j = NetEaseApi.get_mp3url(song_id, self.proxies)
                 # print('r = ', r.text)
                 if j['code'] == 200 and len(j['data']) > 0:
-                    if 'url' not in j['data'][0]:
+                    if 'url' not in j['data'][0] or j['data'][0]['url'] is None:
                         logger.warn('mp3 url is not exists, artist_id = %s, song_id = %s' % (artist_id, song_id))
                         return CrawlStatus.NOT_FOUND
                     else :

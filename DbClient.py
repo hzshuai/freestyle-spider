@@ -22,7 +22,7 @@ class DbClient:
                 create table music_jobs
                 (artist_id varchar(20),
                 song_id varchar(20) primary key,
-                song_name varchar(255),
+                song_name varchar(512),
                 priority int,
                 lyric_status varchar(20),
                 mp3_status varchar(20),
@@ -76,7 +76,7 @@ class DbClient:
         sql = '''
             update artist_jobs set status = 'INIT' where status = 'IN_CRAWLING'
         '''
-        cursor.execute(sql % str(limit))
+        cursor.execute(sql)
         print('restore_artist_jobs: %d' % cursor.rowcount)
         cursor.close()
         self.conn.commit()

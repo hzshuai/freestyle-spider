@@ -59,7 +59,7 @@ class Crawler(threading.Thread):
         more = False
         # 获取歌手个人主页
         try:
-            artist_dir = ('musics/at-%s' % artist_id)
+            artist_dir = ('en-musics/at-%s' % artist_id)
             if not os.path.exists(artist_dir):
                 os.mkdir(artist_dir)
             with open(artist_dir + '/songs-id-list.csv', 'w') as fout:
