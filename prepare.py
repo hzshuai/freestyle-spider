@@ -33,6 +33,8 @@ def add_crawl_jobs(db_client, inputfile, hotfile):
             with open(song_list_path, 'r') as fin_s:
                 for s in fin_s.readlines():
                     sp = s.split(',')
+                    if len(sp) < 2 or not sp[0].isdigit():
+                        continue
                     song_id = sp[0]
                     song_name = sp[1].strip()
                     rows.append((artist_id, song_id, song_name, priority, CrawlStatus.INIT, CrawlStatus.INIT))
@@ -141,6 +143,6 @@ if __name__ == '__main__':
     # prepare_music_jobs('free.db')
     #prepare_artist_jobs()
 
-    gen_song_list_path('en-musics', 'conf/en-all-artists-songs.txt',
-    'conf/en-sorted-artists-songs.txt','conf/en-artists-id-list.csv')
+    #gen_song_list_path('en-musics', 'conf/en-all-artists-songs.txt',
+    #'conf/en-sorted-artists-songs.txt','conf/en-artists-id-list.csv')
     prepare_music_jobs('en_musics.db')
