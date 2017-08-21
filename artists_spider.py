@@ -29,7 +29,9 @@ class Crawler(threading.Thread):
         threading.Thread.__init__(self)
         self.task_que = task_que
         self.res_que = res_que
-        self.proxies = {}
+        self.proxies = {'http': '120.83.13.53:8080',
+        'http': '180.109.139.109:8888','http': '211.143.155.172:80',
+        'http': '117.135.251.209:80','http': '112.74.52.60:8888' }
         logger.info("start thread: %s" % self.name)
 
     def fetch_songs_using_nodejs_api(self, album_id, fout):

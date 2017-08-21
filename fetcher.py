@@ -285,8 +285,8 @@ if __name__ == '__main__':
     '''
         fetch english artists
     '''
-    # fetch_hot_artists([2001, 2002, 2003], 'conf/hot-en-artists-id-list.csv')
-    # fetch_all_artists([2001, 2002, 2003], 'conf/en-artists-id-list.csv')
+    fetch_hot_artists([2001, 2002, 2003], 'conf/hot-en-artists-id-list.csv')
+    fetch_all_artists([2001, 2002, 2003], 'conf/en-artists-id-list.csv')
 
     '''
         fetch all albums and get the song lists
@@ -297,6 +297,6 @@ if __name__ == '__main__':
 
     #fetch_all_albums('conf/artists-id-list.csv', ftype, start, end)
 
-    fetch_all_albums('conf/en-artists-id-list.csv', ftype, start, end)
+    #fetch_all_albums('conf/en-artists-id-list.csv', ftype, start, end)
 
     print("finished crawler......")

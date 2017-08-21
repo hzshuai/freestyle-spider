@@ -19,6 +19,12 @@ musics-bak/
 *.tar.gz
 conf/log.ini
 *.db
+en-musics*
+daemon.sh.bak
+download*
+
+# idea
+.idea*
 
 # mac
 .DS_Store

@@ -47,7 +47,7 @@ class Crawler(threading.Thread):
                     return CrawlStatus.NOT_FOUND
                 else :
                     lyric = j['lrc']['lyric']
-                    lrc_path = 'musics/at-%s/%s.lrc' % (artist_id, song_id)
+                    lrc_path = '/data/musics/at-%s/%s.lrc' % (artist_id, song_id)
                     with open(lrc_path, 'w') as fout:
                         fout.write('%s' % lyric)
                         logger.info('\t....... lrc saved to %s' % lrc_path)
@@ -85,7 +85,7 @@ class Crawler(threading.Thread):
             logger.info('\tstart fetch mp3 params: artist_id = %s, song_id = %s' % (artist_id, song_id))
             # 获取专辑对应的页面
             try:
-                lrc_path = 'musics/at-%s/%s.lrc' % (artist_id, song_id)
+                lrc_path = '/data/musics/at-%s/%s.lrc' % (artist_id, song_id)
                 if not os.path.exists(lrc_path):
                     logger.warn('quit download mp3, lyric is not exists, artist_id = %s, song_id = %s' % (artist_id, song_id))
                     return CrawlStatus.FAILED
@@ -99,7 +99,7 @@ class Crawler(threading.Thread):
                         return CrawlStatus.NOT_FOUND
                     else :
                         mp3_url = j['data'][0]['url']
-                        mp3_path = 'musics/at-%s/%s.mp3' % (artist_id, song_id)
+                        mp3_path = '/data/musics/at-%s/%s.mp3' % (artist_id, song_id)
                         status = self.download_file(mp3_url, mp3_path)
                         sleeping('finished download mp3 file artist_id = %s, song_id = %s' % (artist_id, song_id))
                         return status
@@ -185,7 +185,7 @@ class Scheduler():
               or (self.ftype == 'lyric' and r[0] == CrawlStatus.CRAWLED) \
               or (self.ftype == 'mp3' and r[1] == CrawlStatus.CRAWLED):
                 self.crawled_cnt += 1
-                if self.crawled_cnt % 1000 == 0:
+                if self.crawled_cnt % 600 == 0:
                     logger.critical('music_spider has crawled %d musics' % self.crawled_cnt)
         if len(res) > 0:
             # should be format at [(lyric_status, mp3_status, comment, song_id)]
@@ -222,10 +222,10 @@ if __name__ == '__main__':
     ftype = 'mp3'
 
     threads = []
-    for i in range(10):
+    for i in range(30):
         t = Crawler(task_que, res_que, ftype)
         t.start()
         threads.append(t)
 
-    s = Scheduler(db_client, task_que, res_que, threads, 20, ftype)
+    s = Scheduler(db_client, task_que, res_que, threads, 50, ftype)
     s.run()

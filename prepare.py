@@ -135,8 +135,8 @@ def add_artist_jobs(db_client, infile):
 
 def prepare_artist_jobs():
     db_client = DbClient('en-artists.db')
-    db_client.create_table_artist_jobs()
-    add_artist_jobs(db_client, 'conf/en-artists-id-list.csv')
+    #db_client.create_table_artist_jobs()
+    add_artist_jobs(db_client, 'conf/hot-en-artists-id-list.csv')
     db_client.close_conn()
 
 if __name__ == '__main__':
