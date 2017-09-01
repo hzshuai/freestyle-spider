@@ -1,6 +1,8 @@
 ### FreestyleSpider
 
-项目目的: 爬取netease cloud music中的歌曲的歌词、歌曲文件(也可以扩展到爬取评论等数据)
+项目功能: 爬取netease cloud music中的歌曲的歌词、歌曲文件(也可以扩展到爬取评论等数据)
+
+项目目的：基于GAN训练歌词生成，和评论生成等
 
 
 ### 参考项目：
